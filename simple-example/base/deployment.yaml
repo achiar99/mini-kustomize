@@ -3,7 +3,6 @@ kind: Deployment
 metadata:
   name: my-app
 spec:
-  replicas: 1
   selector:
     matchLabels:
       app: my-app
@@ -14,13 +13,10 @@ spec:
     spec:
       containers:
       - name: my-app
-        image: alpine:3.10
-        tty: true
-        stdin: true
-        env:
-          - name: foo
-            value: bar
+        image: alpine
         resources:
           limits:
-            memory: "64Mi"
-            cpu: "100m"
+            memory: "128Mi"
+            cpu: "500m"
+        tty: true
+        stdin: true
